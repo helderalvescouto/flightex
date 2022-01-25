@@ -1,11 +1,12 @@
 defmodule Flightex.Users.CreateOrUpdateTest do
   use ExUnit.Case, async: true
 
-  alias Flightex.Users.{Agent, CreateOrUpdate}
+  alias Flightex.Users.CreateOrUpdate
+  alias Flightex.Users.Agent, as: UserAgent
 
   describe "call/1" do
     setup do
-      Agent.start_link(%{})
+      UserAgent.start_link(%{})
       # O Agent.start_link vai iniciar os 2 agents antes do teste
       # Deve ser implementado para os testes passarem
       :ok
@@ -18,9 +19,9 @@ defmodule Flightex.Users.CreateOrUpdateTest do
         cpf: "12345678900"
       }
 
-      CreateOrUpdate.call(params)
+      {:ok, user} = CreateOrUpdate.call(params)
 
-      {_ok, response} = Agent.get(params.cpf)
+      {_ok, response} = UserAgent.get(user.id)
 
       expected_response = %Flightex.Users.User{
         cpf: "12345678900",

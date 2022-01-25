@@ -15,5 +15,5 @@ defmodule Flightex.Users.User do
     }}
   end
 
-  def build(_name, _email, _cpf), do: {:error, "Invalid parameters"}
+  def build(_name, _email, _cpf), do: {:error, "Cpf must be a String"}
 end

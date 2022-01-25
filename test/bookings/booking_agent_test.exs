@@ -18,9 +18,9 @@ defmodule Flightex.Bookings.AgentTest do
         |> build()
         |> BookingsAgent.save()
 
-      {:ok, uuid} = response
+      {:ok, booking} = response
 
-      assert response == {:ok, uuid}
+      assert response == {:ok, booking}
     end
   end
 
@@ -33,9 +33,9 @@ defmodule Flightex.Bookings.AgentTest do
 
     test "when the user is found, return a booking", %{id: id} do
       booking = build(:booking, id: id)
-      {:ok, uuid} = BookingsAgent.save(booking)
+      {:ok, book} = BookingsAgent.save(booking)
 
-      response = BookingsAgent.get(uuid)
+      response = BookingsAgent.get(book.id)
 
       expected_response =
         {:ok,
@@ -44,7 +44,7 @@ defmodule Flightex.Bookings.AgentTest do
            id: id,
            local_destination: "Bananeiras",
            local_origin: "Brasilia",
-           user_id: "12345678900"
+           user_id: book.user_id
          }}
 
       assert response == expected_response
