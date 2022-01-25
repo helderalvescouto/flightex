@@ -4,21 +4,31 @@ defmodule Flightex.Bookings.BookingTest do
   alias Flightex.Bookings.Booking
 
   describe "build/4" do
+    setup do
+      Flightex.start_agents()
+
+      :ok
+    end
+
     test "when all params are valid, returns a booking" do
+      user_params = %{name: "Vanessa", email: "vanessa@banana.com", cpf: "12345698700"}
+
+      {:ok, user} = Flightex.create_or_update_user(user_params)
+
       {:ok, response} =
         Booking.build(
-          ~N[2001-05-07 01:46:20],
+          "2001-05-07 01:46:20",
           "Brasilia",
           "ilha das bananas",
-          "12345678900"
+          user.id
         )
 
-      expected_response = %Flightex.Bookings.Booking{
+      expected_response = %Booking{
         complete_date: ~N[2001-05-07 01:46:20],
         id: response.id,
         local_destination: "ilha das bananas",
         local_origin: "Brasilia",
-        user_id: "12345678900"
+        user_id: response.user_id
       }
 
       assert response == expected_response
