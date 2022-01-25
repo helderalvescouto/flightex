@@ -6,15 +6,13 @@ defmodule Flightex.Bookings.Booking do
 
   defstruct @keys
 
-  def build(_complete_date, local_origin, local_destination, user_id) when local_origin != "" and local_destination != "" do
-    complete_date = NaiveDateTime.local_now()
-
+  def build(complete_date, local_origin, local_destination, user_id) when local_origin != "" and local_destination != "" do
     user_id
     |> UserAgent.get()
-    |> build_booking(complete_date, local_origin, local_destination)
+    |> build_booking(NaiveDateTime.from_iso8601!(complete_date), local_origin, local_destination)
   end
 
-  def build(_user_id, _local_origin, _local_destination),
+  def build(_user_id, _complete_date, _local_origin, _local_destination),
     do: {:error, "Invalid parameters"}
 
   defp build_booking({:ok, user}, complete_date, local_origin, local_destination) do
