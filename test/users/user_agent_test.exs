@@ -53,11 +53,7 @@ defmodule Flightex.Users.AgentTest do
       assert response == expected_response
     end
 
-    test "when the user is't founded, returns an error", %{id: id, cpf: cpf} do
-      :user
-      |> build(id: id, cpf: cpf)
-      |> UserAgent.save()
-
+    test "when the user is't founded, returns an error" do
       response = UserAgent.get("banana")
 
       expected_response = {:error, "User not found"}

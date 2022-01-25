@@ -1,14 +1,6 @@
 {
   "excluded": [],
-  "failed": [
-    {
-      "describe": "build/4",
-      "file": "/Users/heldercouto/workspace/flightex/test/bookings/booking_test.exs",
-      "line": 9,
-      "module": "Elixir.Flightex.Bookings.BookingTest",
-      "test": "test build/4 when all params are valid, returns a booking"
-    }
-  ],
+  "failed": [],
   "invalid": [],
   "passed": [
     {
@@ -26,32 +18,11 @@
       "test": "test build/4 when all params are valid, returns the user"
     },
     {
-      "describe": "call/1",
-      "file": "/Users/heldercouto/workspace/flightex/test/bookings/create_or_update_test.exs",
-      "line": 15,
-      "module": "Elixir.Flightex.Bookings.CreateOrUpdateTest",
-      "test": "test call/1 when all params are valid, returns a valid tuple"
-    },
-    {
-      "describe": "get/1",
-      "file": "/Users/heldercouto/workspace/flightex/test/bookings/booking_agent_test.exs",
-      "line": 53,
-      "module": "Elixir.Flightex.Bookings.AgentTest",
-      "test": "test get/1 when the user wasn't found, returns an error"
-    },
-    {
-      "describe": "get/1",
-      "file": "/Users/heldercouto/workspace/flightex/test/bookings/booking_agent_test.exs",
-      "line": 34,
-      "module": "Elixir.Flightex.Bookings.AgentTest",
-      "test": "test get/1 when the user is found, return a booking"
-    },
-    {
       "describe": "save/1",
-      "file": "/Users/heldercouto/workspace/flightex/test/bookings/booking_agent_test.exs",
-      "line": 15,
-      "module": "Elixir.Flightex.Bookings.AgentTest",
-      "test": "test save/1 when the param are valid, return a booking uuid"
+      "file": "/Users/heldercouto/workspace/flightex/test/users/user_agent_test.exs",
+      "line": 18,
+      "module": "Elixir.Flightex.Users.AgentTest",
+      "test": "test save/1 when the user is saves, returns an tuple"
     },
     {
       "describe": "get/1",
@@ -68,11 +39,39 @@
       "test": "test get/1 when the user is found, returns the user"
     },
     {
+      "describe": "build/4",
+      "file": "/Users/heldercouto/workspace/flightex/test/bookings/booking_test.exs",
+      "line": 13,
+      "module": "Elixir.Flightex.Bookings.BookingTest",
+      "test": "test build/4 when all params are valid, returns a booking"
+    },
+    {
+      "describe": "call/1",
+      "file": "/Users/heldercouto/workspace/flightex/test/bookings/create_or_update_test.exs",
+      "line": 15,
+      "module": "Elixir.Flightex.Bookings.CreateOrUpdateTest",
+      "test": "test call/1 when all params are valid, returns a valid tuple"
+    },
+    {
       "describe": "save/1",
-      "file": "/Users/heldercouto/workspace/flightex/test/users/user_agent_test.exs",
-      "line": 18,
-      "module": "Elixir.Flightex.Users.AgentTest",
-      "test": "test save/1 when the user is saves, returns an tuple"
+      "file": "/Users/heldercouto/workspace/flightex/test/bookings/booking_agent_test.exs",
+      "line": 15,
+      "module": "Elixir.Flightex.Bookings.AgentTest",
+      "test": "test save/1 when the param are valid, return a booking uuid"
+    },
+    {
+      "describe": "get/1",
+      "file": "/Users/heldercouto/workspace/flightex/test/bookings/booking_agent_test.exs",
+      "line": 53,
+      "module": "Elixir.Flightex.Bookings.AgentTest",
+      "test": "test get/1 when the user wasn't found, returns an error"
+    },
+    {
+      "describe": "get/1",
+      "file": "/Users/heldercouto/workspace/flightex/test/bookings/booking_agent_test.exs",
+      "line": 34,
+      "module": "Elixir.Flightex.Bookings.AgentTest",
+      "test": "test get/1 when the user is found, return a booking"
     },
     {
       "describe": "call/1",
